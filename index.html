@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento da Quadra - Dom Ungarelli</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="cabecalho">
+    <div class="logo">
+        <div class="logo-icone">🏫</div>
+        <div>
+            <h1>Centro Educa Mais</h1>
+            <p>Dom Ungarelli</p>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <button id="btnAgendar" class="menu-btn ativo">
+            Agendar Quadra
+        </button>
+
+        <button id="btnAdmin" class="menu-btn">
+            Administração
+        </button>
+    </nav>
+</header>
+
+
+<main>
+
+    <!-- ÁREA DE AGENDAMENTO -->
+    <section id="paginaAgendamento">
+
+        <div class="banner">
+            <div>
+                <h2>Agendamento da Quadra</h2>
+                <p>
+                    Solicite um horário para utilizar a quadra poliesportiva
+                    do Centro Educa Mais Dom Ungarelli.
+                </p>
+            </div>
+
+            <div class="banner-icone">
+                🏀
+            </div>
+        </div>
+
+
+        <div class="container">
+
+            <div class="card">
+                <h2>📅 Novo agendamento</h2>
+                <p class="descricao">
+                    Preencha os dados abaixo para solicitar um horário.
+                </p>
+
+                <form id="formAgendamento">
+
+                    <div class="grid">
+
+                        <div class="campo">
+                            <label for="nome">Nome do responsável</label>
+                            <input
+                                type="text"
+                                id="nome"
+                                placeholder="Digite o nome completo"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="turma">Turma / Sala</label>
+                            <input
+                                type="text"
+                                id="turma"
+                                placeholder="Ex: 2º Ano A"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="telefone">Telefone</label>
+                            <input
+                                type="tel"
+                                id="telefone"
+                                placeholder="(98) 99999-9999"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="endereco">Endereço</label>
+                            <input
+                                type="text"
+                                id="endereco"
+                                placeholder="Digite o endereço"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="data">Data</label>
+                            <input
+                                type="date"
+                                id="data"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo">
+    <label for="horario">Horário</label>
+
+    <select id="horario" required>
+        <option value="">Selecione</option>
+
+        <option value="08:00 - 09:00">08:00 - 09:00</option>
+        <option value="09:00 - 10:00">09:00 - 10:00</option>
+        <option value="10:00 - 11:00">10:00 - 11:00</option>
+        <option value="11:00 - 12:00">11:00 - 12:00</option>
+        <option value="12:00 - 13:00">12:00 - 13:00</option>
+        <option value="13:00 - 14:00">13:00 - 14:00</option>
+        <option value="14:00 - 15:00">14:00 - 15:00</option>
+        <option value="15:00 - 16:00">15:00 - 16:00</option>
+        <option value="16:00 - 17:00">16:00 - 17:00</option>
+        <option value="17:00 - 18:00">17:00 - 18:00</option>
+        <option value="18:00 - 19:00">18:00 - 19:00</option>
+        <option value="19:00 - 20:00">19:00 - 20:00</option>
+        <option value="20:00 - 21:00">20:00 - 21:00</option>
+        <option value="21:00 - 22:00">21:00 - 22:00</option>
+    </select>
+</div>
+
+                        <div class="campo">
+                            <label for="modalidade">Modalidade</label>
+
+                            <select id="modalidade" required>
+                                <option value="">Selecione</option>
+                                <option value="Futsal">Futsal</option>
+                                <option value="Basquete">Basquete</option>
+                                <option value="Vôlei">Vôlei</option>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="participantes">
+                                Quantidade de participantes
+                            </label>
+
+                            <input
+                                type="number"
+                                id="participantes"
+                                min="1"
+                                max="100"
+                                placeholder="Ex: 15"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="campo">
+                        <label for="observacao">Observação</label>
+
+                        <textarea
+                            id="observacao"
+                            rows="4"
+                            placeholder="Digite alguma observação, se necessário"
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="botao-principal">
+                        ✓ Solicitar agendamento
+                    </button>
+
+                </form>
+            </div>
+
+
+            <div class="card">
+                <div class="titulo-lista">
+                    <div>
+                        <h2>📋 Meus agendamentos</h2>
+                        <p class="descricao">
+                            Acompanhe as solicitações cadastradas.
+                        </p>
+                    </div>
+
+                    <input
+                        type="text"
+                        id="pesquisaAluno"
+                        class="pesquisa"
+                        placeholder="🔎 Pesquisar..."
+                    >
+                </div>
+
+                <div id="listaAluno"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ÁREA ADMINISTRATIVA -->
+    <section id="paginaAdmin" class="oculto">
+
+        <div class="banner banner-admin">
+            <div>
+                <h2>🔐 Administração</h2>
+                <p>
+                    Controle e gerenciamento dos agendamentos da quadra.
+                </p>
+            </div>
+
+            <div class="banner-icone">
+                ⚙️
+            </div>
+        </div>
+
+
+        <div class="container">
+
+            <div class="estatisticas">
+
+                <div class="estatistica">
+                    <span>📋</span>
+                    <strong id="totalAdmin">0</strong>
+                    <p>Total</p>
+                </div>
+
+                <div class="estatistica">
+                    <span>⏳</span>
+                    <strong id="totalPendentes">0</strong>
+                    <p>Pendentes</p>
+                </div>
+
+                <div class="estatistica">
+                    <span>✓</span>
+                    <strong id="totalAprovados">0</strong>
+                    <p>Aprovados</p>
+                </div>
+
+                <div class="estatistica">
+                    <span>✕</span>
+                    <strong id="totalRecusados">0</strong>
+                    <p>Recusados</p>
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="titulo-lista">
+                    <div>
+                        <h2>Agendamentos</h2>
+                        <p class="descricao">
+                            Aprove, recuse ou exclua solicitações.
+                        </p>
+                    </div>
+
+                    <input
+                        type="text"
+                        id="pesquisaAdmin"
+                        class="pesquisa"
+                        placeholder="🔎 Pesquisar..."
+                    >
+                </div>
+
+
+                <div class="filtros">
+
+                    <button class="filtro ativo" data-filtro="Todos">
+                        Todos
+                    </button>
+
+                    <button class="filtro" data-filtro="Pendente">
+                        Pendentes
+                    </button>
+
+                    <button class="filtro" data-filtro="Aprovado">
+                        Aprovados
+                    </button>
+
+                    <button class="filtro" data-filtro="Recusado">
+                        Recusados
+                    </button>
+
+                </div>
+
+
+                <div id="listaAdmin"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>© 2026 Centro Educa Mais Dom Ungarelli</p>
+    <p>Sistema de Agendamento da Quadra</p>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
